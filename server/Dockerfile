@@ -1,13 +1,19 @@
 FROM node:22-alpine
 
+# Set the working directory
 WORKDIR /app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-RUN npm ci
+# Install dependencies
+RUN npm ci --only=production
 
+# Copy the rest of the application code
 COPY . .
 
+# Expose the port your app runs on
 EXPOSE 5000
 
+# Start the application
 CMD ["npm", "start"]

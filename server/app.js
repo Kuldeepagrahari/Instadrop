@@ -6,7 +6,11 @@ import mongo from "./utils/db.js"
 import router from "./routes/roomRoutes.js"
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: "https://instadrop-sigma.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+}));
 app.use(express.json());
 app.get("/", (req, res) => {
     res.json({
