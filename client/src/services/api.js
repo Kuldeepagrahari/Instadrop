@@ -1,6 +1,6 @@
 import { auth } from "./firebase.js";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://instadrop-1z5y.onrender.com/api";
 
 const getAuthHeaders = async () => {
     const user = auth.currentUser;
